@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     ПУК — Панель Управления Комиксами (v0.5).
 
@@ -10,7 +10,7 @@
     Конфигурация (пути, 7z.exe) сохраняется в config_PUK.json рядом со скриптом.
 
 .NOTES
-    Author : GlitchGoblin
+    Author : Array
     Version: 0.5
     Date   : 2026-11-25
 #>
@@ -60,7 +60,7 @@ $Fonts = @{
     Main  = New-Object System.Drawing.Font('Segoe UI', 10)
     Log   = New-Object System.Drawing.Font('Consolas', 9)
     Title = New-Object System.Drawing.Font('Russo One', 16)
-    Icon  = New-Object System.Drawing.Font('Segoe UI Symbol', 13)
+    Icon  = New-Object System.Drawing.Font('Segoe MDL2 Assets', 12)
 }
 
 # Размер и геометрия главного окна
@@ -482,9 +482,9 @@ $Lform.Add_MouseDown({
 })
 $form.Controls.Add($Lform)
 
-# ── Кнопка настроек (шестерёнка) ──────────────────────────────────────────
+# ── Кнопка настроек (шестеренка) ──────────────────────────────────────────
 $btnSettings = New-Object System.Windows.Forms.Button
-$btnSettings.Text             = [char]0x2699   # символ ⚙
+$btnSettings.Text             = [char]0xE115   # символ шестеренки
 $btnSettings.Font             = $Fonts.Icon
 $btnSettings.Location         = New-Object System.Drawing.Point(442, 4)
 $btnSettings.Size             = New-Object System.Drawing.Size(28, 26)
