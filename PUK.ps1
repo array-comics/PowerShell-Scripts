@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    ПУК — Панель Управления Комиксами (v0.5).
+    ПУК — Панель Управления Комиксами (v0.6).
 
 .DESCRIPTION
     Графическое приложение на Windows Forms для автоматизации рутинных операций
@@ -11,7 +11,7 @@
 
 .NOTES
     Author : Array
-    Version: 0.5
+    Version: 0.6
     Date   : 2026-11-25
 #>
 
@@ -454,7 +454,7 @@ function Invoke-ConvertCbzToCbr {
 # Построение главного окна
 # ─────────────────────────────────────────────────────────────────────────────
 $form = New-Object System.Windows.Forms.Form
-$form.Text             = 'ПУК — Панель управления комиксами v0.5'
+$form.Text             = 'ПУК — Панель управления комиксами v0.6'
 $form.Size             = New-Object System.Drawing.Size($Layout.FormWidth, $Layout.FormHeight)
 $form.StartPosition    = 'CenterScreen'
 $form.FormBorderStyle  = 'None'
@@ -471,7 +471,7 @@ $form.Add_MouseDown({
 
 # ── Заголовок ─────────────────────────────────────────────────────────────
 $Lform = New-Object System.Windows.Forms.Label
-$Lform.Text      = 'ПУК v0.5'
+$Lform.Text      = 'ПУК v0.6'
 $Lform.Location  = New-Object System.Drawing.Point(20, 6)
 $Lform.Size 	 = New-Object System.Drawing.Size(150, 28)
 $Lform.ForeColor = $Colors.TitleText
@@ -498,14 +498,14 @@ $form.Controls.Add($btnSettings)
 
 # ── Основные действия (верхний ряд) ───────────────────────────────────────
 $btnMove = New-Object System.Windows.Forms.Button
-$btnMove.Text     = 'Переместить комиксы'
+$btnMove.Text = [char]0xE11C + ' Переместить комиксы'
 $btnMove.Location = New-Object System.Drawing.Point(20, 35)
 $btnMove.Size     = New-Object System.Drawing.Size(215, $Layout.ButtonHeight)
 $btnMove.Add_Click({ Invoke-MoveComics })
 $form.Controls.Add($btnMove)
 
 $btnConvert = New-Object System.Windows.Forms.Button
-$btnConvert.Text     = 'CBZ to CBR'
+$btnConvert.Text     = [char]0xE117 + ' CBZ to CBR'
 $btnConvert.Location = New-Object System.Drawing.Point(245, 35)
 $btnConvert.Size     = New-Object System.Drawing.Size(215, $Layout.ButtonHeight)
 $btnConvert.Add_Click({ Invoke-ConvertCbzToCbr })
@@ -513,14 +513,14 @@ $form.Controls.Add($btnConvert)
 
 # ── Открытие рабочих каталогов (второй ряд) ───────────────────────────────
 $btnOpenSrc = New-Object System.Windows.Forms.Button
-$btnOpenSrc.Text     = 'Открыть каталог загрузок'
+$btnOpenSrc.Text     = [char]0xE197 + ' Открыть каталог загрузок'
 $btnOpenSrc.Location = New-Object System.Drawing.Point(20, 85)
 $btnOpenSrc.Size     = New-Object System.Drawing.Size(215, $Layout.SmallBtnH)
 $btnOpenSrc.Add_Click({ Open-FolderInExplorer -Path $script:Config.SourceDir })
 $form.Controls.Add($btnOpenSrc)
 
 $btnOpenBase = New-Object System.Windows.Forms.Button
-$btnOpenBase.Text     = 'Открыть каталог базы'
+$btnOpenBase.Text     = [char]0xE188 + ' Открыть каталог базы'
 $btnOpenBase.Location = New-Object System.Drawing.Point(245, 85)
 $btnOpenBase.Size     = New-Object System.Drawing.Size(215, $Layout.SmallBtnH)
 $btnOpenBase.Add_Click({ Open-FolderInExplorer -Path $script:Config.ComicsBase })
@@ -541,7 +541,7 @@ $form.Controls.Add($txtLog)
 
 # ── Нижние кнопки: Очистить и Выйти ───────────────────────────────────────
 $btnClear = New-Object System.Windows.Forms.Button
-$btnClear.Text     = 'Очистить'
+$btnClear.Text     = [char]0xE107 + 'Очистить'
 $btnClear.Location = New-Object System.Drawing.Point(20, 320)
 $btnClear.Size     = New-Object System.Drawing.Size(440, 25)
 $btnClear.Add_Click({ $txtLog.Clear() })
